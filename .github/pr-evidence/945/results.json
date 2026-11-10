@@ -1,0 +1,42 @@
+{
+  "issue": "https://github.com/alphaXiv/OpenResearch/issues/945",
+  "platform": "macOS",
+  "browser": "Chromium",
+  "flow": "Send a fixed prompt through the real dashboard in Plan mode",
+  "prompt": "Reply exactly PLAN_MODEL_OK. Do not use any tool.",
+  "selection": {
+    "pickerLabel": "GPT-6 Astra (Copilot)",
+    "savedModel": "haiku",
+    "resolvedModel": "gpt-6-astra"
+  },
+  "before": {
+    "app": "OpenResearch 0.2.25 original release",
+    "processModel": "haiku",
+    "permissionMode": "plan",
+    "errorStatus": 400,
+    "errorCode": "model_not_supported",
+    "screenshot": "before.png"
+  },
+  "after": {
+    "app": "Local patched build",
+    "processModel": "gpt-6-astra",
+    "permissionMode": "plan",
+    "reply": "PLAN_MODEL_OK",
+    "screenshot": "after.png"
+  },
+  "isolation": {
+    "temporaryProject": true,
+    "temporaryHomeAndAgentConfig": true,
+    "temporaryAppData": true,
+    "researchDataUsed": false,
+    "credentialsIncludedInArtifacts": false,
+    "liveConfigurationChanged": false,
+    "temporaryProcessesStopped": true,
+    "temporaryCredentialsRemoved": true
+  },
+  "limits": [
+    "The browser check uses Chromium, not the native desktop webview.",
+    "The error does not identify the rejected model ID.",
+    "The patched app has a Dev badge."
+  ]
+}
